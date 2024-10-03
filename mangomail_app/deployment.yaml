@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: newsletter-service
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: newsletter-service
+  template:
+    metadata:
+      labels:
+        app: newsletter-service
+  spec:
+      container:
+        - name: newsletter-service
+          image: your-docker-image-url
+          ports:
+            - containerPort: 8000
